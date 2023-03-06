@@ -1,11 +1,12 @@
 import java.sql.*;
 import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) throws Exception {
         // Configuración de la conexión a la base de datos
         String url = "jdbc:mysql://localhost:3306/alumnos";
         String usuario = "antonio";
-        String clave = "";
+        String clave = "Lupiman77!";
         
         // Declaración de variables
         Connection conexion = null;
