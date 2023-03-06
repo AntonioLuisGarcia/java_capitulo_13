@@ -65,9 +65,9 @@ public class App {
                         sentencia.execute(sql);
                     break;
                 }
+
             }while(opcion != 5);
                 
-            
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
