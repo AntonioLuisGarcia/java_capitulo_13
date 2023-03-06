@@ -110,7 +110,6 @@ public class App {
             while(resultado.next()) {
                 id = resultado.getInt("id");
             }
-
         }catch(SQLException e){
             e.printStackTrace();
         }        
