@@ -40,10 +40,27 @@ public class App3 {
                             }
                         }
                     break;
+
+                    case 3:
+                        System.out.println("Nombre:");
+                        String nombre = sc.next();
+                        System.out.println("Apellidos:");
+                        String apellidos = sc.next();
+                        service.create(nombre, apellidos);
+                    break;
+
+                    case 4:
+
+                    break;
+
+                    case 5:
+                        System.out.println("Diga el ID que quiera borrar");
+                        int iden = Integer.parseInt(sc.nextLine());
+                        service.delete(iden);
+                    break;
                 }
 
-                
-            }while(eleccion!=5);        
+            }while(eleccion!=6);        
             sc.close();
             //TODO: Incluye llamadas para probar el servicio
         } catch (SQLException e) {

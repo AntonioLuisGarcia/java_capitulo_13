@@ -49,6 +49,7 @@ public class AlumnosService {
 
     public long create(String nombre, String apellidos) throws SQLException{
         Statement statement = null;
+        long id = 0;
         statement = this.conn.createStatement();    
         String sql = String.format("INSERT INTO alumnos (nombre, apellidos) VALUES ('%s', '%s')", nombre, apellidos);
         // Ejecución de la consulta
@@ -58,7 +59,7 @@ public class AlumnosService {
         }
         try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
             if (generatedKeys.next()) {
-                long id = generatedKeys.getLong(1);
+                id = generatedKeys.getLong(1);
                 statement.close();
                 return id;
             }
