@@ -26,14 +26,20 @@ public class ClasesService {
             String claseProfesor = resultados.getString("ClaseProfesor");
             listaClases.add(new Clase(claseId,claseNombre,claseProfesor)); 
         }
-        
+
         statement.close();
         return listaClases;
     }
 
-    public Clase requestById(int id){
+    public Clase requestById(int id)throws SQLException{
         Clase clase = new Clase();
-
+        Statement statement = this.connect.createStatement();
+        String sql = "SELECT ClaseId, ClaseNombre, ClaseProfesor FROM clase WHERE ClaseId = " + id;
+        ResultSet resultados = statement.executeQuery(sql);
+        clase.setId(id);
+        clase.setNombre(resultados.getString("ClaseNombre"));
+        clase.setProfesor(resultados.getString("ClaseProfesor"));
+        statement.close();
         return clase;
     }
 }
