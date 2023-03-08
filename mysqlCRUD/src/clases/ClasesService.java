@@ -64,4 +64,16 @@ public class ClasesService {
             }
         }
     }
+
+    public int update(int claseId, String claseNombre, String claseProfesor)throws SQLException{
+        Statement statement = connect.createStatement();
+        String sql = String.format("UPDATE clase SET claseNombre = '%s', claseProfesor = '%s' WHERE claseId=%d", claseNombre, claseProfesor, claseId);
+        int affectedRows = statement.executeUpdate(sql);
+        statement.close();
+        
+        if (affectedRows == 0)
+            throw new SQLException("Creating user failed, no rows affected.");
+        else
+            return affectedRows;
+    }
 }
