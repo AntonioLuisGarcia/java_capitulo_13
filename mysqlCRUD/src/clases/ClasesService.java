@@ -42,4 +42,26 @@ public class ClasesService {
         statement.close();
         return clase;
     }
+
+    public long create(String claseNombre, String claseProfesor)throws SQLException{
+        long claseId = 0;
+        Statement statement = connect.createStatement();
+        String sql = String.format("INSERT INTO clase (claseNombre, claseProfesor) VALUES ('%s', '%s')", claseNombre, claseProfesor);
+        statement.execute(sql);
+        int affectedRows = statement.executeUpdate(sql,Statement.RETURN_GENERATED_KEYS);
+        if (affectedRows == 0) {
+            throw new SQLException("Creating user failed, no rows affected.");
+        }
+        try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
+            if (generatedKeys.next()) {
+                claseId = generatedKeys.getLong(1);
+                statement.close();
+                return claseId;
+            }
+            else {
+                statement.close();
+                throw new SQLException("Creating user failed, no ID obtained.");
+            }
+        }
+    }
 }
