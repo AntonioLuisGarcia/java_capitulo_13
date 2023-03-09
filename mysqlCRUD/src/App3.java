@@ -21,7 +21,7 @@ public class App3 {
 
             do{
 
-                muestraMenu();
+                muestraMenuAlumnos();
                 eleccion = Integer.parseInt(sc.nextLine());
 
                 switch(eleccion){
@@ -46,7 +46,9 @@ public class App3 {
                         String nombre = sc.next();
                         System.out.println("Apellidos:");
                         String apellidos = sc.next();
-                        service.create(nombre, apellidos);
+                        System.out.println("Id de la clase(si no tiene clase asignada ponga 0):");
+                        int claseId = Integer.parseInt(sc.nextLine());
+                        service.create(nombre, apellidos,claseId);
                     break;
 
                     case 4:
@@ -70,7 +72,7 @@ public class App3 {
         }
     }
 
-    public static void muestraMenu(){
+    public static void muestraMenuAlumnos(){
         System.out.println("1. Mostrar datos\n2. Mostrar datos por ID\n3. Añadir registro\n4. Actualizar registro\n5. Eliminar registros por ID\n6. Salir");
     }
 }

@@ -3,15 +3,17 @@ public class Alumno {
     long id;
     String nombre;
     String apellidos;
+    long claseId;
  
     public Alumno(){
-        this(0,"","");
+        this(0,"","",0);
     }
 
-    public Alumno(int id, String nombre, String apellidos){
+    public Alumno(int id, String nombre, String apellidos,long claseId){
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
+        this.claseId = claseId;
     }
 
     public long getId() {
@@ -36,6 +38,14 @@ public class Alumno {
 
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
+    }
+
+    public long getClaseId() {
+        return claseId;
+    }
+
+    public void setClaseId(long claseId) {
+        this.claseId = claseId;
     }
 
     @Override

@@ -24,7 +24,8 @@ public class AlumnosService {
             int id = querySet.getInt("id");
             String nombre = querySet.getString("nombre");
             String apellidos = querySet.getString("apellidos");
-            result.add(new Alumno(id, nombre, apellidos));
+            int claseId = querySet.getInt("claseId");
+            result.add(new Alumno(id, nombre, apellidos,claseId));
         } 
         statement.close();    
         return result;
@@ -41,17 +42,23 @@ public class AlumnosService {
         if(querySet.next()) {
             String nombre = querySet.getString("nombre");
             String apellidos = querySet.getString("apellidos");
-            result = new Alumno(id, nombre, apellidos);
+            int claseId = querySet.getInt("ClaseId");
+            result = new Alumno(id, nombre, apellidos,claseId);
         }
         statement.close();    
         return result;
     }
 
-    public long create(String nombre, String apellidos) throws SQLException{
+    public long create(String nombre, String apellidos, int claseId) throws SQLException{
         Statement statement = null;
         long id = 0;
-        statement = this.conn.createStatement();    
-        String sql = String.format("INSERT INTO alumnos (nombre, apellidos) VALUES ('%s', '%s')", nombre, apellidos);
+        String sql = "";
+        statement = this.conn.createStatement();  
+        if(claseId != 0){
+            sql = String.format("INSERT INTO alumnos (nombre, apellidos,ClaseId) VALUES ('%s', '%s' ,'%d')", nombre, apellidos,claseId);
+        }else{
+            sql = String.format("INSERT INTO alumnos (nombre, apellidos,ClaseId) VALUES ('%s', '%s' ,'NULL')", nombre, apellidos);
+        }  
         // Ejecución de la consulta
         int affectedRows = statement.executeUpdate(sql,Statement.RETURN_GENERATED_KEYS);
         if (affectedRows == 0) {
@@ -70,10 +77,10 @@ public class AlumnosService {
         }
     }
 
-    public int update(int id, String nombre, String apellidos) throws SQLException{
+    public int update(int id, String nombre, String apellidos, int claseId) throws SQLException{
         Statement statement = null;
         statement = this.conn.createStatement();    
-        String sql = String.format("UPDATE alumnos SET nombre = '%s', apellidos = '%s' WHERE id=%d", nombre, apellidos, id);
+        String sql = String.format("UPDATE alumnos SET nombre = '%s', apellidos = '%s' , ClaseId = '%d' WHERE id=%d", nombre, apellidos, claseId, id);
         // Ejecución de la consulta
         int affectedRows = statement.executeUpdate(sql);
         statement.close();

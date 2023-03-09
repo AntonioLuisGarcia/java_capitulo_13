@@ -46,7 +46,7 @@ public class ClasesService {
     public long create(String claseNombre, String claseProfesor)throws SQLException{
         long claseId = 0;
         Statement statement = connect.createStatement();
-        String sql = String.format("INSERT INTO clase (claseNombre, claseProfesor) VALUES ('%s', '%s')", claseNombre, claseProfesor);
+        String sql = String.format("INSERT INTO clase (ClaseNombre, ClaseProfesor) VALUES ('%s', '%s')", claseNombre, claseProfesor);
         statement.execute(sql);
         int affectedRows = statement.executeUpdate(sql,Statement.RETURN_GENERATED_KEYS);
         if (affectedRows == 0) {
@@ -67,7 +67,7 @@ public class ClasesService {
 
     public int update(int claseId, String claseNombre, String claseProfesor)throws SQLException{
         Statement statement = connect.createStatement();
-        String sql = String.format("UPDATE clase SET claseNombre = '%s', claseProfesor = '%s' WHERE claseId=%d", claseNombre, claseProfesor, claseId);
+        String sql = String.format("UPDATE clase SET ClaseNombre = '%s', ClaseProfesor = '%s' WHERE ClaseId=%d", claseNombre, claseProfesor, claseId);
         int affectedRows = statement.executeUpdate(sql);
         statement.close();
 
@@ -79,7 +79,7 @@ public class ClasesService {
 
     public boolean delete(long claseId) throws SQLException{
         Statement statement = this.connect.createStatement();    
-        String sql = String.format("DELETE FROM clase WHERE claseId=%d", claseId);
+        String sql = String.format("DELETE FROM clase WHERE ClaseId=%d", claseId);
         // Ejecución de la consulta+
         int result = statement.executeUpdate(sql);
         statement.close();
