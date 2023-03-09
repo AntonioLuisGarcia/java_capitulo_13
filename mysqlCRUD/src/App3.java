@@ -17,7 +17,6 @@ public class App3 {
         try {
             // Conexión a la base de datos
             AlumnosService service = new AlumnosService(pool.getConnection());
-            ClasesService claseService = new ClasesService(pool.getConnection());
             Scanner sc = new Scanner(System.in);
             int eleccion = 0;
             int eleccionAlumnos = 0;
