@@ -1,4 +1,10 @@
 package alumnos;
+
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+
 public class Alumno {
     long id;
     String nombre;
@@ -46,6 +52,23 @@ public class Alumno {
 
     public void setClaseId(long claseId) {
         this.claseId = claseId;
+    }
+
+    public String toString2(Connection conn) throws SQLException {
+        Statement statement = conn.createStatement();  
+        String sql = "SELECT ClaseNombre FROM clase WHERE ClaseId = " + this.claseId;
+        ResultSet querySet = statement.executeQuery(sql);
+
+        String nombreClase = "";
+        if (querySet.next()) {
+            nombreClase = querySet.getString("ClaseNombre");
+        }
+
+        if(nombreClase.equals("")){
+            nombreClase = "Sin clase";
+        }
+
+        return String.format("ID: %d, Nombre: %s, Apellidos: %s, Clase: %s", this.id, this.nombre, this.apellidos,nombreClase);
     }
 
     @Override
