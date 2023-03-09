@@ -50,6 +50,6 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return String.format("ID: %d, Nombre: %s, Apellidos: %s", this.id, this.nombre, this.apellidos);
+        return String.format("ID: %d, Nombre: %s, Apellidos: %s, ClaseId: %d", this.id, this.nombre, this.apellidos,this.claseId);
     }
 }
