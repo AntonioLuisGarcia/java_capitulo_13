@@ -16,7 +16,7 @@ public class AlumnosService {
         Statement statement = null;
         ArrayList<Alumno> result = new ArrayList<Alumno>();
         statement = this.conn.createStatement();   
-        String sql = "SELECT id, nombre, apellidos FROM alumnos";
+        String sql = "SELECT id, nombre, apellidos, ClaseId FROM alumnos";
         // Ejecución de la consulta
         ResultSet querySet = statement.executeQuery(sql);
         // Recorrido del resultado de la consulta
@@ -24,7 +24,7 @@ public class AlumnosService {
             int id = querySet.getInt("id");
             String nombre = querySet.getString("nombre");
             String apellidos = querySet.getString("apellidos");
-            int claseId = querySet.getInt("claseId");
+            int claseId = querySet.getInt("ClaseId");
             result.add(new Alumno(id, nombre, apellidos,claseId));
         } 
         statement.close();    
@@ -35,7 +35,7 @@ public class AlumnosService {
         Statement statement = null;
         Alumno result = null;
         statement = this.conn.createStatement();    
-        String sql = String.format("SELECT id, nombre, apellidos FROM alumnos WHERE id=%d", id);
+        String sql = String.format("SELECT id, nombre, apellidos, ClaseId FROM alumnos WHERE id=%d", id);
         // Ejecución de la consulta
         ResultSet querySet = statement.executeQuery(sql);
         // Recorrido del resultado de la consulta
@@ -57,7 +57,7 @@ public class AlumnosService {
         if(claseId != 0){
             sql = String.format("INSERT INTO alumnos (nombre, apellidos,ClaseId) VALUES ('%s', '%s' ,'%d')", nombre, apellidos,claseId);
         }else{
-            sql = String.format("INSERT INTO alumnos (nombre, apellidos,ClaseId) VALUES ('%s', '%s' ,'NULL')", nombre, apellidos);
+            sql = String.format("INSERT INTO alumnos (nombre, apellidos,ClaseId) VALUES ('%s', '%s' ,NULL)", nombre, apellidos);
         }  
         // Ejecución de la consulta
         int affectedRows = statement.executeUpdate(sql,Statement.RETURN_GENERATED_KEYS);
