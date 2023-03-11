@@ -70,9 +70,7 @@ public class App3 {
                                     String nombre1 = sc.nextLine();
                                     System.out.println("Apellidos:");
                                     String apellidos1 = sc.nextLine();
-                                    System.out.println("Id de la clase(si no tiene clase asignada ponga 0):");
-                                    int claseId1 = Integer.parseInt(sc.nextLine());
-                                    service.update(identi, nombre1, apellidos1, claseId1);
+                                    service.update(identi, nombre1, apellidos1);
                                 break;
 
                                 case 5:

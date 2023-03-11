@@ -77,10 +77,10 @@ public class AlumnosService {
         }
     }
 
-    public int update(int id, String nombre, String apellidos) throws SQLException{
+    public int update(int id, String nombre, String apellidos, int claseId) throws SQLException{
         Statement statement = null;
         statement = this.conn.createStatement();    
-        String sql = String.format("UPDATE alumnos SET nombre = '%s', apellidos = '%s' WHERE id=%d", nombre, apellidos, id);
+        String sql = String.format("UPDATE alumnos SET nombre = '%s', apellidos = '%s' , ClaseId = '%d' WHERE id=%d", nombre, apellidos, claseId, id);
         // Ejecución de la consulta
         int affectedRows = statement.executeUpdate(sql);
         statement.close();
