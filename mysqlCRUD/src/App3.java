@@ -118,9 +118,7 @@ public class App3 {
                                     int identi = Integer.parseInt(sc.nextLine());
                                     System.out.println("Nombre de la clase:");
                                     String nombre1 = sc.nextLine();
-                                    System.out.println("Tutor:");
-                                    String tutor1 = sc.nextLine();
-                                    serviceClase.update(identi, nombre1, tutor1);
+                                    serviceClase.update(identi, nombre1);
                                 break;
 
                                 case 5:

@@ -65,9 +65,9 @@ public class ClasesService {
         }
     }
 
-    public int update(int claseId, String claseNombre, String claseProfesor)throws SQLException{
+    public int update(int claseId, String claseNombre)throws SQLException{
         Statement statement = connect.createStatement();
-        String sql = String.format("UPDATE clase SET ClaseNombre = '%s', ClaseProfesor = '%s' WHERE ClaseId=%d", claseNombre, claseProfesor, claseId);
+        String sql = String.format("UPDATE clase SET ClaseNombre = '%s' WHERE ClaseId=%d", claseNombre, claseId);
         int affectedRows = statement.executeUpdate(sql);
         statement.close();
 
