@@ -90,6 +90,18 @@ public class AlumnosService {
             return affectedRows;
     }
 
+    public int updateIdClass(int id, int idClass)throws SQLException{
+        Statement statement = this.conn.createStatement(); 
+        String sql = String.format("UPDATE alumnos SET ClaseId = '%d' WHERE id=%d", idClass, id);
+        int affectedRows = statement.executeUpdate(sql);
+        statement.close();
+        if(affectedRows == 0){
+            throw new SQLException("Creating user failed, no rows affected.");
+        }else{
+            return affectedRows;
+        }
+    }
+
     public boolean delete(long id) throws SQLException{
         Statement statement = null;
         statement = this.conn.createStatement();    

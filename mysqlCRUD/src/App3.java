@@ -23,6 +23,7 @@ public class App3 {
             int eleccion = 0;
             int eleccionAlumnos = 0;
             int eleccionClase = 0;
+            int eleccionMatricula = 0;
 
             do{
                 System.out.println("1. Gestion Alumnos\n2. Gestion Grupos\n3. Gestion matriculas\n4. Salir");
@@ -132,11 +133,35 @@ public class App3 {
 
                     case 3:
 
+                        do{
+                            System.out.println("1. Matricula Alumnos\n2. Matricula Profesores\n3. Salir");
+                            eleccionMatricula = Integer.parseInt(sc.nextLine());
+
+                            switch(eleccionMatricula){
+                                case 1:
+                                    System.out.println("Diga el id del alumno que quiere cambiar:");
+                                    int idAlumno = Integer.parseInt(sc.nextLine());
+                                    System.out.println("Diga el id de la clase nueva:");
+                                    int idClaseNuevo = Integer.parseInt(sc.nextLine());
+                                    service.updateIdClass(idAlumno, idClaseNuevo);
+                                break;
+
+                                case 2:
+                                    System.out.println("Diga el id de la clase que quiere cambiar:");
+                                    int idClase = Integer.parseInt(sc.nextLine());
+                                    System.out.println("Diga el nombre del profesor/a nuevo:");
+                                    String profesorNuevo = sc.nextLine();
+                                    serviceClase.updateTeacher(idClase, profesorNuevo);
+                                break;
+                            }
+                        }while(eleccionMatricula !=3);
+
                     break;
                 }
                     
             }while(eleccion!=4);        
             sc.close();
+            System.out.println("Saliendo de la gestion");
 
         } catch (SQLException e) {
             e.printStackTrace();
