@@ -67,8 +67,8 @@ public class Alumno {
         if(nombreClase.equals("")){
             nombreClase = "Sin clase";
         }
-
-        return String.format("ID: %d, Nombre: %s, Apellidos: %s, Clase: %s", this.id, this.nombre, this.apellidos,nombreClase);
+        
+        return String.format("<tr> <td>" + this.id + "</td><td>" + this.nombre + "</td><td>" + this.apellidos + "</td> <td>" + nombreClase + "</td>");
     }
 
     @Override

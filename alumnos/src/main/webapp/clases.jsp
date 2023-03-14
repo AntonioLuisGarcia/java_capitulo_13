@@ -17,5 +17,13 @@
         int id = Integer.parseInt(request.getParameter("id"));
         out.print(id);
     %>
+
+    <form method="post" action="update.jsp">
+        <input type="hidden" value="<%=id%>" name="id">
+        Nombre de la clase nueva:
+        <input type="text" name="nombreClase">
+        <input class="boton" type="submit" value="Cambiar">
+    </form>
+
 </body>
 </html>
