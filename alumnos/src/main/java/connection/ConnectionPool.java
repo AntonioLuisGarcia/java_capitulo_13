@@ -26,7 +26,6 @@ public class ConnectionPool {
             _conn = DriverManager.getConnection(this.url, this.user, this.password);
             this.conns.add(_conn);
         } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         

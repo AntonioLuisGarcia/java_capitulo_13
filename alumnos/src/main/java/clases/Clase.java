@@ -44,6 +44,6 @@ public class Clase {
 
     @Override
     public String toString(){
-        return String.format("<tr> <td>" + this.id + "</td><td>" + this.nombre + "</td><td>" + this.profesor + "</td></tr>");
+        return String.format("<tr> <td>" + this.id + "</td><td>" + this.nombre + "</td><td>" + this.profesor + "</td>");//el </td> lo hago cuando imprimo el toString junto a los botones
     }
 }
