@@ -1,0 +1,13 @@
+h1{
+    text-align: center;
+}
+
+#tabla{
+    display: flex;
+    justify-content: center;
+}
+
+table, th, td {
+    border: 1px solid;
+    border-collapse: collapse;
+}

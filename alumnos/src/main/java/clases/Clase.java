@@ -44,6 +44,6 @@ public class Clase {
 
     @Override
     public String toString(){
-        return "ID: " + this.id + ", Clase: " + this.nombre + " ,Profesor: " + this.profesor;
+        return String.format("<tr> <td>" + this.id + "</td><td>" + this.nombre + "</td><td>" + this.profesor + "</td></tr>");
     }
 }

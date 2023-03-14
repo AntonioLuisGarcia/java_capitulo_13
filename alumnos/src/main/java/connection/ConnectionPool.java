@@ -21,8 +21,15 @@ public class ConnectionPool {
     public Connection getConnection()throws SQLException{
 
         Connection _conn = null;
-        _conn = DriverManager.getConnection(this.url, this.user, this.password);
-        this.conns.add(_conn);
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            _conn = DriverManager.getConnection(this.url, this.user, this.password);
+            this.conns.add(_conn);
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
         return _conn;
     }
 
