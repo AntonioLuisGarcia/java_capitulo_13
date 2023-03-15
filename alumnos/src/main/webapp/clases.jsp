@@ -39,7 +39,7 @@
                 e.printStackTrace();
                 pool.closeAll();
             }%>
-            
+        <button onclick="window.location.href='gestionClases.jsp'">Volver</button>
         <%}else if(eleccion == 2){ 
             id = Integer.parseInt(request.getParameter("id"));%>
             
