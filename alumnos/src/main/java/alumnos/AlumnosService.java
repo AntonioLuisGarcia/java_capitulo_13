@@ -49,16 +49,12 @@ public class AlumnosService {
         return result;
     }
 
-    public long create(String nombre, String apellidos, int claseId) throws SQLException{
+    public long create(String nombre, String apellidos) throws SQLException{
         Statement statement = null;
         long id = 0;
         String sql = "";
         statement = this.conn.createStatement();  
-        if(claseId != 0){
-            sql = String.format("INSERT INTO alumnos (nombre, apellidos,ClaseId) VALUES ('%s', '%s' ,'%d')", nombre, apellidos,claseId);
-        }else{
-            sql = String.format("INSERT INTO alumnos (nombre, apellidos,ClaseId) VALUES ('%s', '%s' ,NULL)", nombre, apellidos);
-        }  
+        sql = String.format("INSERT INTO alumnos (nombre, apellidos) VALUES ('%s', '%s')", nombre, apellidos); 
         // Ejecución de la consulta
         int affectedRows = statement.executeUpdate(sql,Statement.RETURN_GENERATED_KEYS);
         if (affectedRows == 0) {
