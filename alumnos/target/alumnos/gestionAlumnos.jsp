@@ -56,7 +56,7 @@
     %>
 
     <form method="post" action="alumnos.jsp">
-        <p>Nueva Alumno</p>
+        <p>Nuevo Alumno</p>
         <input type="hidden" value="1" name="consulta">
         Nombre:
         <input type="text" name="nombre">

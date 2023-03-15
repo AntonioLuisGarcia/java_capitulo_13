@@ -60,7 +60,7 @@
         <input type="hidden" value="1" name="consulta">
         Nombre:
         <input type="text" name="nombre">
-        Profesor:
+        Apellidos:
         <input type="text" name="apellidos">
         <br>
         <input class="boton" type="submit" value="Crear">

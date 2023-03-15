@@ -22,15 +22,9 @@
 
         ConnectionPool pool = new ConnectionPool(url, usuario, clave);
 
-        if(eleccion == 1){%>
-            String nombreC = request.getParameter("nombre");
+        if(eleccion == 1){
+            String nombre = request.getParameter("nombre");
             String apellidos = request.getParameter("apellidos");
-
-            String url = "jdbc:mysql://localhost:3306/alumnos";
-            String usuario = "antonio";
-            String clave = "Lupiman77!";
-            
-            ConnectionPool pool = new ConnectionPool(url, usuario, clave);
 
             try{
                 AlumnosService service = new AlumnosService(pool.getConnection());

@@ -22,8 +22,21 @@
 
         ConnectionPool pool = new ConnectionPool(url, usuario, clave);
 
-        if(eleccion == 1){%>
+        if(eleccion == 1){
+            String nombre = request.getParameter("nombre");
+            String apellidos = request.getParameter("apellidos");
 
+            try{
+                AlumnosService service = new AlumnosService(pool.getConnection());
+                service.create(nombre,apellidos);
+                out.print("Alumno añadido");
+
+            }catch(SQLException e){
+                out.print("No se ha podido crear");
+                e.printStackTrace();
+                pool.closeAll();
+            }%>
+        <button onclick="window.location.href='gestionAlumnos.jsp'">Volver</button>
         <%}else if(eleccion == 2){
             id = Integer.parseInt(request.getParameter("id"));%>
             <form method="post" action="alumnos2.jsp">
