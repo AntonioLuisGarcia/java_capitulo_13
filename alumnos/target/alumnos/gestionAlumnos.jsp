@@ -12,6 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <title>Gestion Alumnos</title>
 </head>
 <body>
@@ -24,12 +25,32 @@
         ConnectionPool pool = new ConnectionPool(url, usuario, clave);
 
         try{
-            AlumnosService service = new AlumnosService(pool.getConnection());
+            AlumnosService service = new AlumnosService(pool.getConnection());%>
 
-            for(Alumno al : service.requestAll()){%>
-                <p><%=al.toString2(pool.getConnection())%></p>
-            <%}
-        }catch(SQLException e){
+            <div id="tabla">
+                <table>
+                <tr> <td>ID</td> <td>Nombre</td> <td>Apellidos</td> <td>Clase</td> <td>Cambiar</td> <td>Borrar</td> </tr>    
+                <%for(Alumno al : service.requestAll()){
+                    out.print(al.toString2(pool.getConnection()));%>
+                    <td>
+                        <form method="post" action="alumnos.jsp">
+                            <input type="hidden" value="<%=al.getId()%>" name="id">
+                            <input type="hidden" value="2" name="consulta">
+                            <input class="boton" type="submit" value="Cambiar">
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" action="alumnos.jsp">
+                            <input type="hidden" value="<%=al.getId()%>" name="id">
+                            <input type="hidden" value="3" name="consulta">
+                            <input class="boton" type="submit" value="Borrar">
+                        </form>
+                    </td>
+                    </tr>
+                <%}%>
+            </table>
+        </div>
+        <%}catch(SQLException e){
             pool.closeAll();
         }
     %>
