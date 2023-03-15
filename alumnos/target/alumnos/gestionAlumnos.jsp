@@ -54,6 +54,18 @@
             pool.closeAll();
         }
     %>
+
+    <form method="post" action="alumnos.jsp">
+        <p>Nueva Alumno</p>
+        <input type="hidden" value="1" name="consulta">
+        Nombre:
+        <input type="text" name="nombre">
+        Profesor:
+        <input type="text" name="apellidos">
+        <br>
+        <input class="boton" type="submit" value="Crear">
+    </form>
+    <br><br>
     <button onclick="window.location.href='index.jsp'">Inicio</button>
 </body>
 </html>
