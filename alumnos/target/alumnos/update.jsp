@@ -27,7 +27,7 @@
             ClasesService serviceClase = new ClasesService(pool.getConnection());
 
             int rows = serviceClase.update(id,nombreClase);
-            out.print("Filas cambiadas" + rows);
+            out.print("Filas cambiadas" + rows + "<br>");
 
         }catch(SQLException e){
             pool.closeAll();

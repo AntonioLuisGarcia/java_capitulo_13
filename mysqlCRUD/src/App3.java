@@ -178,6 +178,3 @@ public class App3 {
         System.out.println("1. Mostrar datos\n2. Mostrar datos por ID\n3. Añadir clase\n4. Actualizar clase\n5. Eliminar clase por ID\n6. Salir");
     }
 }
-
-
-

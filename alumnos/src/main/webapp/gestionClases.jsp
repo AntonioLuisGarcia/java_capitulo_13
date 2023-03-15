@@ -58,6 +58,15 @@
 
     %>
 
+    <form method="post" action="clases.jsp">
+        <p>Nueva Clase</p>
+        <input type="hidden" value="1" name="consulta">
+        Nombre:
+        <input type="text" name="nombreClase">
+        Profesor:
+        <input type="text" name="profesorClase">
+        <input class="boton" type="submit" value="Crear">
+    </form>
     <button onclick="window.location.href='index.jsp'">Inicio</button>
 
 </body>

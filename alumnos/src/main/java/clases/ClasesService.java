@@ -47,7 +47,7 @@ public class ClasesService {
         long claseId = 0;
         Statement statement = connect.createStatement();
         String sql = String.format("INSERT INTO clase (ClaseNombre, ClaseProfesor) VALUES ('%s', '%s')", claseNombre, claseProfesor);
-        statement.execute(sql);
+        //statement.execute(sql);
         int affectedRows = statement.executeUpdate(sql,Statement.RETURN_GENERATED_KEYS);
         if (affectedRows == 0) {
             throw new SQLException("Creating user failed, no rows affected.");
