@@ -62,9 +62,8 @@
             </select>
             <input type="hidden" value="<%=id%>" name="id">
             <br><br>
-            <input type="submit" value="Submit">
+            <input type="Seleccionar" value="Submit">
           </form>
-          
     <%}%>
 </body>
 </html>

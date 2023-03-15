@@ -65,8 +65,10 @@
         <input type="text" name="nombreClase">
         Profesor:
         <input type="text" name="profesorClase">
+        <br>
         <input class="boton" type="submit" value="Crear">
     </form>
+    <br><br>
     <button onclick="window.location.href='index.jsp'">Inicio</button>
 
 </body>
