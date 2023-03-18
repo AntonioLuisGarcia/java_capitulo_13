@@ -15,7 +15,7 @@
 </head>
 <body>
 
-    <h1>Gestion de Clases</h1>
+    <h1 class="titulo">Gestion de Clases</h1>
 
     <%
         String url = "jdbc:mysql://localhost:3306/alumnos";
@@ -29,7 +29,7 @@
 
             <div id="tabla">
                 <table>
-                <tr> <td>ID</td> <td>Clase</td> <td>Profesor</td> <td>Cambiar</td> <td>Borrar</td> </tr>    
+                <tr class="primeraTr"> <td>ID</td> <td>Clase</td> <td>Profesor</td> <td>Cambiar</td> <td>Borrar</td> </tr>    
                 <%for(Clase cla : serviceClase.requestAll()){
                     out.print(cla.toString());%>
                     <td>

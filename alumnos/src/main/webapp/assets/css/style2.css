@@ -1,0 +1,19 @@
+.titulo{
+    text-align: center;
+}
+
+.mensaje{
+    margin: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.mensaje input[type="submit" i] {
+    margin-top: 3%;
+    margin-left: 49%;
+}
+
+p button{
+    margin-top: 30%;
+    margin-left: -110%;
+}

@@ -16,7 +16,7 @@
     <title>Gestion Alumnos</title>
 </head>
 <body>
-    <h1>Gestion de Alumnos</h1>
+    <h1 class="titulo">Gestion de Alumnos</h1>
     <%
         String url = "jdbc:mysql://localhost:3306/alumnos";
         String usuario = "antonio";
@@ -29,12 +29,14 @@
 
             <div id="tabla">
                 <table>
-                <tr> <td>ID</td> <td>Nombre</td> <td>Apellidos</td> <td>Clase</td> <td>Cambiar</td> <td>Borrar</td> </tr>    
+                <tr class="primeraTr"> <td>ID</td> <td>Nombre</td> <td>Apellidos</td> <td>Clase</td> <td>Cambiar</td> <td>Borrar</td> </tr>    
                 <%for(Alumno al : service.requestAll()){
                     out.print(al.toString2(pool.getConnection()));%>
                     <td>
                         <form method="post" action="alumnos.jsp">
                             <input type="hidden" value="<%=al.getId()%>" name="id">
+                            <input type="hidden" value="<%=al.getNombre()%>" name="nombre">
+                            <input type="hidden" value="<%=al.getApellidos()%>" name="apellidos">
                             <input type="hidden" value="2" name="consulta">
                             <input class="boton" type="submit" value="Cambiar">
                         </form>
@@ -55,17 +57,32 @@
         }
     %>
 
-    <form method="post" action="alumnos.jsp">
-        <p>Nuevo Alumno</p>
-        <input type="hidden" value="1" name="consulta">
-        Nombre:
-        <input type="text" name="nombre">
-        Apellidos:
-        <input type="text" name="apellidos">
-        <br>
-        <input class="boton" type="submit" value="Crear">
-    </form>
-    <br><br>
+    <div class="creacion">
+        <div class="create">
+            <form method="post" action="alumnos.jsp">
+                <p>Nuevo Alumno</p>
+                <input type="hidden" value="1" name="consulta">
+                Nombre:
+                <input type="text" name="nombre">
+                <br>
+                Apellidos:
+                <input type="text" name="apellidos">
+                <br>
+                <input class="boton" type="submit" value="Crear">
+            </form>
+        </div>
+
+        <div class="filtro">
+            <form method="post" action="filtrar.jsp">
+                <p>Filtrar</p>
+                Filtro:
+                <input type="text" name="filtro">
+                <br>
+                <input class="boton" type="submit" value="Filtrar">
+            </form>
+        </div>
+    </div>
+
     <button onclick="window.location.href='index.jsp'">Inicio</button>
 </body>
 </html>

@@ -10,9 +10,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style2.css" type="text/css">
     <title>Document</title>
 </head>
 <body>
+
+    <h1 class="titulo">Gestion de Clases</h1>
+    <div class="mensaje">
     <%
         int id = 0;
         int eleccion = Integer.parseInt(request.getParameter("consulta"));
@@ -65,5 +69,6 @@
             <input type="submit" value="Seleccionar">
           </form>
     <%}%>
+    </div>
 </body>
 </html>

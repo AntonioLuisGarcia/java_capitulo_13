@@ -1,13 +1,51 @@
-h1{
+.titulo{
     text-align: center;
 }
 
-#tabla{
+.botones{
+    margin-top: 10%;
     display: flex;
     justify-content: center;
+}
+
+.botones button{
+    margin: 1.5%;
+}
+
+#tabla{
+    text-align: center;
+    margin: 4%;
+    display: flex;
+    justify-content: center;
+}
+
+table{
+    width: 60%;
 }
 
 table, th, td {
     border: 1px solid;
     border-collapse: collapse;
+}
+
+.primeraTr{
+    background-color: rgb(36, 36, 163);
+    font-weight: 700;
+    color: antiquewhite;
+}
+
+#tabla td{
+    padding: 2%;
+}
+
+#tabla button[type="submit"] {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.creacion{
+    display:grid;
+    grid-template-columns: 50% 50%;
+    margin: 3%;
 }
