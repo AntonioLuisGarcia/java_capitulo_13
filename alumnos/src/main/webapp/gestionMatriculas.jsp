@@ -14,7 +14,7 @@
     <title>Matriculas</title>
 </head>
 <body>
-    <h1>Matriculas</h1>
+    <h1 class="titulo">Matriculas</h1>
     <%
         String url = "jdbc:mysql://localhost:3306/alumnos";
         String usuario = "antonio";
@@ -27,7 +27,7 @@
 
             <div id="tabla">
                 <table>
-                <tr> <td>ID</td> <td>Nombre</td> <td>Apellidos</td> <td>Clase</td> <td>Cambiar Clase</td> </tr>    
+                <tr class="primeraTr"> <td>ID</td> <td>Nombre</td> <td>Apellidos</td> <td>Clase</td> <td>Cambiar Clase</td> <td>Desmatricular</td> </tr>    
                 <%for(Alumno al : service.requestAll()){
                     out.print(al.toString2(pool.getConnection()));%>
                     <td>

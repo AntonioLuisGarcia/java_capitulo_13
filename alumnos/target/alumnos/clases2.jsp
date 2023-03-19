@@ -35,7 +35,7 @@
             if(cambio == 0){
                 String nombreClase = request.getParameter("nombreClase");
                 int rows = serviceClase.update(id,nombreClase);
-                out.print("Filas cambiadas" + rows + "<br>");
+                out.print("Filas cambiadas: " + rows);
 
             }else if(cambio == 1){
                 int borrar = Integer.parseInt(request.getParameter("borrar"));

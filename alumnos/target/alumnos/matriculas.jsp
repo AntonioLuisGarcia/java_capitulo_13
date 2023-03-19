@@ -16,16 +16,17 @@
     <title>Matriculas</title>
 </head>
 <body>
+    <h1 class="titulo">Matriculas</h1>
     
     <%
-        String url = "jdbc:mysql://localhost:3306/alumnos";
-        String usuario = "antonio";
-        String clave = "Lupiman77!";
-
-        ConnectionPool pool = new ConnectionPool(url, usuario, clave);
-        int id = Integer.parseInt(request.getParameter("id"));
-
-        try{
+    String url = "jdbc:mysql://localhost:3306/alumnos";
+    String usuario = "antonio";
+    String clave = "Lupiman77!";
+    
+    ConnectionPool pool = new ConnectionPool(url, usuario, clave);
+    int id = Integer.parseInt(request.getParameter("id"));
+    
+    try{
             ClasesService serviceClase = new ClasesService(pool.getConnection());
             AlumnosService service = new AlumnosService(pool.getConnection());
             int consulta = Integer.parseInt(request.getParameter("consulta"));
@@ -34,16 +35,16 @@
 
             <div id="tabla">
                 <table>
-                <tr> <td>ID</td> <td>Clase</td> <td>Profesor</td></tr>    
-                <%for(Clase cla : serviceClase.requestAll()){
-                    out.print(cla.toString());%>
+                    <tr class="primeraTr"> <td>ID</td> <td>Clase</td> <td>Profesor</td></tr>    
+                    <%for(Clase cla : serviceClase.requestAll()){
+                        out.print(cla.toString());%>
                     </tr>
                 <%}%>
-
-                </table>
-            </div>
-
-    <div class="anadir">
+                
+            </table>
+        </div>
+        
+        <div class="anadir">
         <form method="post" action="matriculas2.jsp">
             <p>Seleccione el id de alguno de los de arriba</p>
             <input type="hidden" value="<%=id%>" name="id">
@@ -52,16 +53,17 @@
             <br>
             <input class="boton" type="submit" value="Cambiar">
         </form>
-    </div>
         
-    <%}else if(consulta == 2){
-        service.baja(id);
-        out.print("Alumno dado de baja");
-    }
-        }catch(SQLException e){
-            pool.closeAll();
-        }%>
-    <button onclick="window.location.href='gestionMatriculas.jsp'">Volver</button>
+        <%}else if(consulta == 2){
+            service.baja(id);%>
+            <div class="anadir">
+                <p>Alumno dado de baja</p>
+                <button onclick="window.location.href='gestionMatriculas.jsp'">Volver</button>
+        <%}
+    }catch(SQLException e){
+        pool.closeAll();
+    }%>
+</div>
 
 </body>
 </html>
